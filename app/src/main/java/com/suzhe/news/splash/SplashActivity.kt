@@ -25,5 +25,12 @@ class SplashActivity : BaseLogicActivity() {
             //状态栏文字黑色
             QMUIStatusBarHelper.setStatusBarLightMode(this)
         }
+
+        showTermsServiceAgreementDialog()
+    }
+
+    private fun showTermsServiceAgreementDialog() {
+        val dialogFragment = TermServiceDialogFragment()
+        dialogFragment.show(supportFragmentManager, "TermServiceDialogFragment")
     }
 }
