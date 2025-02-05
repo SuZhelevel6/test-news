@@ -6,6 +6,7 @@ import android.view.View
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.suzhe.news.R
 import com.suzhe.news.activity.BaseLogicActivity
+import com.suzhe.superui.util.DefaultPreferenceUtil
 import com.suzhe.superui.util.SuperDarkUtil
 
 class SplashActivity : BaseLogicActivity() {
@@ -27,8 +28,16 @@ class SplashActivity : BaseLogicActivity() {
             //状态栏文字黑色
             QMUIStatusBarHelper.setStatusBarLightMode(this)
         }
+    }
 
-        showTermsServiceAgreementDialog()
+    override fun initDatum() {
+        super.initDatum()
+        if (DefaultPreferenceUtil.getInstance(this).isAcceptTermsServiceAgreement) {
+            //已经同意了用户协议
+
+        } else {
+            showTermsServiceAgreementDialog()
+        }
     }
 
     private fun showTermsServiceAgreementDialog() {
