@@ -1,22 +1,16 @@
 package com.suzhe.news.splash
 
 import android.os.Build
-import android.os.Bundle
 import android.util.Log
 import android.Manifest
 import com.permissionx.guolindev.PermissionX
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
-import com.suzhe.news.R
-import com.suzhe.news.activity.BaseLogicActivity
+import com.suzhe.news.activity.BaseViewModelActivity
+import com.suzhe.news.databinding.ActivitySplashBinding
 import com.suzhe.superui.util.DefaultPreferenceUtil
 import com.suzhe.superui.util.SuperDarkUtil
 
-class SplashActivity : BaseLogicActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-    }
+class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
 
     override fun initViews() {
         super.initViews()
