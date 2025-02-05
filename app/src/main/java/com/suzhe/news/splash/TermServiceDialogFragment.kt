@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.content.ContextCompat.getColor
+import androidx.fragment.app.FragmentManager
 import com.suzhe.superui.util.ScreenUtil
 import com.suzhe.news.R
 import com.suzhe.news.fragment.BaseDialogFragment
+import com.suzhe.superui.process.SuperProcessUtil
 import com.suzhe.superui.util.SuperTextUtil
 
 /**
@@ -23,7 +25,10 @@ import com.suzhe.superui.util.SuperTextUtil
  * 服务条款和隐私协议对话框
  */
 class TermServiceDialogFragment : BaseDialogFragment() {
+    private lateinit var onAgreementClickListener: View.OnClickListener
     private lateinit var contentView:TextView
+    private lateinit var primaryView:TextView
+    private lateinit var disagreeView: TextView
 
     override fun initViews() {
         super.initViews()
@@ -31,6 +36,8 @@ class TermServiceDialogFragment : BaseDialogFragment() {
         isCancelable = false
 
         contentView = findViewById<TextView>(R.id.content)
+        primaryView = findViewById<TextView>(R.id.primary)
+        disagreeView = findViewById<TextView>(R.id.disagree)
         SuperTextUtil.setLinkColor(contentView, getColor(requireContext(), R.color.link))
     }
 
@@ -39,6 +46,22 @@ class TermServiceDialogFragment : BaseDialogFragment() {
         val content = Html.fromHtml(getString(R.string.term_service_privacy_content))
         contentView.text = content
     }
+
+    override fun initListeners() {
+        super.initListeners()
+        //同意按钮点击
+        primaryView.setOnClickListener {
+            dismiss()
+            onAgreementClickListener.onClick(it)
+        }
+
+        //不同意按钮点击
+        disagreeView.setOnClickListener {
+            dismiss()
+            SuperProcessUtil.killApp()
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -53,6 +76,19 @@ class TermServiceDialogFragment : BaseDialogFragment() {
 
     override fun getLayoutView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_dialog_term_service, container, false)
+    }
+
+    companion object {
+        /**
+         * 显示对话框
+         */
+        fun show(fragmentManager: FragmentManager, onAgreementClickListener: View.OnClickListener) {
+            val dialogFragment = TermServiceDialogFragment()
+
+            dialogFragment.onAgreementClickListener = onAgreementClickListener
+
+            dialogFragment.show(fragmentManager, "TermServiceDialogFragment")
+        }
     }
 
 }

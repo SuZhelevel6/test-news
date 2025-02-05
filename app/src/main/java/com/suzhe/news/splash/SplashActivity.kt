@@ -1,6 +1,8 @@
 package com.suzhe.news.splash
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.suzhe.news.R
 import com.suzhe.news.activity.BaseLogicActivity
@@ -30,7 +32,8 @@ class SplashActivity : BaseLogicActivity() {
     }
 
     private fun showTermsServiceAgreementDialog() {
-        val dialogFragment = TermServiceDialogFragment()
-        dialogFragment.show(supportFragmentManager, "TermServiceDialogFragment")
+        TermServiceDialogFragment.show(supportFragmentManager) {
+            Log.d("TAG", "primary OnClick")
+        }
     }
 }
