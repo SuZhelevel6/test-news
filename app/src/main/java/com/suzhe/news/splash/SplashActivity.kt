@@ -1,16 +1,20 @@
 package com.suzhe.news.splash
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.suzhe.news.R
+import com.suzhe.news.activity.BaseLogicActivity
 import com.suzhe.superui.util.SuperDarkUtil
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseLogicActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+    }
 
+    override fun initViews() {
+        super.initViews()
         //设置沉浸式状态栏
         QMUIStatusBarHelper.translucent(this)
 
