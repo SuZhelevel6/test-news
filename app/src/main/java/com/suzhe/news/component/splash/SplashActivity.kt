@@ -9,6 +9,7 @@ import com.suzhe.news.activity.BaseViewModelActivity
 import com.suzhe.news.component.guide.GuideActivity
 import com.suzhe.news.databinding.ActivitySplashBinding
 import com.suzhe.news.utils.DefaultPreferenceUtil
+import com.suzhe.news.utils.PreferenceUtil
 import com.suzhe.superui.util.SuperDarkUtil
 
 class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
@@ -72,7 +73,10 @@ class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
 
     private fun prePareNext() {
         finish()
-        startActivityAfterFinishThis(GuideActivity::class.java)
+        if(PreferenceUtil.isShowGuide()) {
+            startActivityAfterFinishThis(GuideActivity::class.java)
+        }
+
     }
 
     private fun showTermsServiceAgreementDialog() {
