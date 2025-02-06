@@ -1,4 +1,4 @@
-package com.suzhe.news.splash
+package com.suzhe.news.component.splash
 
 import android.os.Bundle
 import android.text.Html
