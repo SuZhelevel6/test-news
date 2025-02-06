@@ -1,4 +1,4 @@
-package com.suzhe.superui.util
+package com.suzhe.news.utils
 
 import android.content.Context
 import android.content.SharedPreferences

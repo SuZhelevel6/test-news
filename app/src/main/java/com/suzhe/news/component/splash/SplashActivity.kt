@@ -3,14 +3,12 @@ package com.suzhe.news.component.splash
 import android.os.Build
 import android.util.Log
 import android.Manifest
-import android.content.Intent
 import com.permissionx.guolindev.PermissionX
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
-import com.suzhe.news.MainActivity
 import com.suzhe.news.activity.BaseViewModelActivity
 import com.suzhe.news.component.guide.GuideActivity
 import com.suzhe.news.databinding.ActivitySplashBinding
-import com.suzhe.superui.util.DefaultPreferenceUtil
+import com.suzhe.news.utils.DefaultPreferenceUtil
 import com.suzhe.superui.util.SuperDarkUtil
 
 class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
