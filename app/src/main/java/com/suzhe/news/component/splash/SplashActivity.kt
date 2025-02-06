@@ -3,9 +3,12 @@ package com.suzhe.news.component.splash
 import android.os.Build
 import android.util.Log
 import android.Manifest
+import android.content.Intent
 import com.permissionx.guolindev.PermissionX
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
+import com.suzhe.news.MainActivity
 import com.suzhe.news.activity.BaseViewModelActivity
+import com.suzhe.news.component.guide.GuideActivity
 import com.suzhe.news.databinding.ActivitySplashBinding
 import com.suzhe.superui.util.DefaultPreferenceUtil
 import com.suzhe.superui.util.SuperDarkUtil
@@ -61,12 +64,19 @@ class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
         }.request { allGranted, grantedList, deniedList ->
             if (allGranted) {
                 Log.d("SplashActivity", "All permissions are granted!")
+                prePareNext()
             } else {
                 //可以在这里弹出提示告诉用户为什么需要权限
                 finish()
             }
         }
     }
+
+    private fun prePareNext() {
+        finish()
+        startActivityAfterFinishThis(GuideActivity::class.java)
+    }
+
     private fun showTermsServiceAgreementDialog() {
         TermServiceDialogFragment.show(supportFragmentManager) {
             Log.d("TAG", "primary OnClick")

@@ -2,34 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
             android:name="android.hardware.camera"
             android:required="false"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <!--
 使用的特性，如果再Google Play上浏览应用，如果当前设备不满足，就看不到这个应用；
 因为这里是一个音乐应用，强制要求有相机，不太好，这里只是讲解这个知识点
--->
+    -->
     <uses-feature
             android:name="android.hardware.camera"
-            android:required="false" />
+            android:required="false"/>
     <uses-feature
             android:name="android.hardware.camera.autofocus"
-            android:required="false" />
+            android:required="false"/>
     <uses-feature
             android:name="android.hardware.location.gps"
-            android:required="false" />
+            android:required="false"/>
 
     <application
             android:allowBackup="true"
@@ -41,6 +39,9 @@
             android:supportsRtl="true"
             android:theme="@style/SuperUI.NoActionBar"
             tools:targetApi="31">
+        <activity
+                android:name=".component.guide.GuideActivity"
+                android:exported="false"/>
         <activity
                 android:name=".component.splash.SplashActivity"
                 android:exported="true">
