@@ -1,11 +1,16 @@
 package com.suzhe.news.component.guide
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.SyncStateContract
 import android.util.Log
+import com.suzhe.news.MainActivity
 import com.suzhe.news.R
 import com.suzhe.news.activity.BaseViewModelActivity
+import com.suzhe.news.component.login.LoginHomeActivity
 import com.suzhe.news.databinding.ActivityGuideBinding
+import com.suzhe.news.utils.Constant
 import com.suzhe.news.utils.PreferenceUtil
 
 class GuideActivity : BaseViewModelActivity<ActivityGuideBinding>() {
@@ -38,10 +43,14 @@ class GuideActivity : BaseViewModelActivity<ActivityGuideBinding>() {
         binding.loginOrRegister.setOnClickListener {
             Log.d("TAG","点击了登录按钮")
             setShowGuide()
+            val intent = Intent(this,LoginHomeActivity::class.java)
+            intent.action = Constant.ACTION_LOGIN
+            startActivity(intent)
         }
         binding.experienceNow.setOnClickListener {
             Log.d("TAG","点击了体验按钮")
             setShowGuide()
+            startActivityAfterFinishThis(MainActivity::class.java)
         }
     }
 

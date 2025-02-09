@@ -8,4 +8,5 @@ package com.suzhe.news.utils
  **/
 object Constant {
     const val ID = "id"
+    const val ACTION_LOGIN = "com.suzhe.news.ACTION_LOGIN"
 }
