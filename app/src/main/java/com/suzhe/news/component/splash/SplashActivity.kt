@@ -73,9 +73,9 @@ class SplashActivity : BaseViewModelActivity<ActivitySplashBinding>() {
 
     private fun prePareNext() {
         finish()
-        if(PreferenceUtil.isShowGuide()) {
+//        if(PreferenceUtil.isShowGuide()) {
             startActivityAfterFinishThis(GuideActivity::class.java)
-        }
+//        }
 
     }
 

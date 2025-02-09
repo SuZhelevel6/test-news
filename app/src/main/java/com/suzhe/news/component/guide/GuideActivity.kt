@@ -9,6 +9,23 @@ import com.suzhe.news.databinding.ActivityGuideBinding
 import com.suzhe.news.utils.PreferenceUtil
 
 class GuideActivity : BaseViewModelActivity<ActivityGuideBinding>() {
+    private lateinit var adapter: GuideAdapter
+
+    override fun initDatum() {
+        super.initDatum()
+        adapter = GuideAdapter(this,supportFragmentManager)
+        binding.list.adapter = adapter
+
+        var datum :MutableList<Int> = ArrayList()
+
+        datum.add(R.drawable.guide1)
+        datum.add(R.drawable.guide2)
+        datum.add(R.drawable.guide3)
+        datum.add(R.drawable.guide4)
+        datum.add(R.drawable.guide5)
+
+        adapter.setDatum(datum)
+    }
 
     override fun initListeners() {
         super.initListeners()
