@@ -16,6 +16,12 @@ class GuideActivity : BaseViewModelActivity<ActivityGuideBinding>() {
         adapter = GuideAdapter(this,supportFragmentManager)
         binding.list.adapter = adapter
 
+        //让指示器根据列表控件配合工作
+        binding.indicator.setViewPager(binding.list)
+
+        //适配器注册数据源观察者
+        adapter.registerDataSetObserver(binding.indicator.dataSetObserver)
+
         var datum :MutableList<Int> = ArrayList()
 
         datum.add(R.drawable.guide1)

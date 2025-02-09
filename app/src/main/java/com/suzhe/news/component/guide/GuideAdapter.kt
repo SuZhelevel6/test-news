@@ -3,7 +3,7 @@ package com.suzhe.news.component.guide
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import com.suzhe.news.adapter.BaseFragmentPagerAdapter
 
 /**
  *@Author: 22122
@@ -11,20 +11,17 @@ import androidx.fragment.app.FragmentPagerAdapter
  *@Version: v1.0.0
  *@Description: TODO
  **/
-class GuideAdapter(var context: Context,var fragmentManager: FragmentManager) :FragmentPagerAdapter(fragmentManager){
-    private var datum : MutableList<Int> = mutableListOf()
-    override fun getCount(): Int {
-        return datum.size
+class GuideAdapter(context: Context, fragmentManager: FragmentManager) :
+    BaseFragmentPagerAdapter<Int>(context, fragmentManager) {
+
+    /**
+     * 获取当前位置的数据
+     *
+     * @param position
+     * @return
+     */
+    override fun getItem(position: Int): Fragment {
+        return GuideFragment.newInstance(getData(position))
     }
 
-    override fun getItem(p0: Int): Fragment {
-        return GuideFragment.newInstance(datum[p0])
-    }
-
-    fun setDatum(datum: MutableList<Int>) {
-        this.datum.clear()
-        this.datum.addAll(datum)
-        notifyDataSetChanged()
-
-    }
 }
